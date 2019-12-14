@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.chiu.demo.dao.mapper.DeviceMapper">  <!-- namespace指定完全包路径的接口类 -->
+    <resultMap id="deviceResult" type="me.chiu.demo.entity.Device">  <!-- type属性指定要映射的实体类，由于在mybatis-conf.xml中已经用<typeAliases>配置了包名，故此地不用写全类名 -->
+        <id property="id" column="id"/>  <!-- 主键用<id>标签，表示把表中的id字段映射到实体类Device中的id属性 -->
+        <result property="name" column="name"/>  <!-- 非主键用<reslut>标签，表示把表中的name字段映射到实体类Device的name属性 -->
+        <result property="borrowTime" column="borrow_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        <result property="userId" column="user_id"/>
+    </resultMap>
+
+    <select id="selectDevice" resultMap="deviceResult">
+        SELECT * FROM DEVICE WHERE id = #{id}
+    </select>
+
+    <insert id="insertDevice">
+        INSERT INTO DEVICE (ID, NAME, BORROW_TIME, USER_ID) VALUES (#{id}, #{name}, #{borrowTime, jdbcType=TIMESTAMP}, #{userId})
+    </insert>
+
+    <update id="updateDevice">
+        UPDATE DEVICE SET USER_ID = #{userId}, BORROW_TIME = #{borrowTime, jdbcType=TIMESTAMP} WHERE ID = #{id}
+    </update>
+
+    <delete id="deleteDevice">
+        DELETE FROM DEVICE WHERE ID = #{id}
+    </delete>
+</mapper>
