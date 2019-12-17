@@ -1,12 +1,11 @@
 package me.chiu.demo.dao.mapper;
 
 import me.chiu.demo.entity.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.cache.decorators.LoggingCache;
 import org.springframework.stereotype.Service;
 
+@CacheNamespace(eviction = LoggingCache.class)
 @Mapper
 @Service
 public interface UserMapper {

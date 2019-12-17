@@ -14,6 +14,7 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @MapperScan("me.chiu.demo.dao.mapper")
@@ -36,6 +37,7 @@ public class DemoApplication implements ApplicationRunner {
         userMapper.insert(newUser);
         User user = userMapper.selectUser(1);
         System.out.println(user.toString());
+        user = userMapper.selectUser(1);
 
         Device device = deviceMapper.selectDevice(2);
         System.out.println(device.toString());
