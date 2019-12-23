@@ -38,14 +38,12 @@ public class Application implements ApplicationRunner {
         User newUser = User.builder().userName("lin").password("xxx").salary(Money.of(CurrencyUnit.of("CNY"), 30.0)).age(30).build();
         userMapper.insert(newUser);
         User user = userMapper.selectUser(1);
-        System.out.println(user.toString());
         user = userMapper.selectUser(1);
 
         Device device = deviceMapper.selectDevice(2);
-        System.out.println(device.toString());
-        log.debug(device.toString());
+        log.info(device.toString());
         deviceMapper.insertDevice(new Device());
 
-        producer.start();
+//        producer.start();
     }
 }

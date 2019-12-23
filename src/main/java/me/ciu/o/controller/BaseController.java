@@ -9,9 +9,4 @@ public class BaseController {
     public String index() {
         return "index";
     }
-
-    @RequestMapping(method = RequestMethod.GET, path = "/todo")
-    public String todo() {
-        return "todo";
-    }
 }
