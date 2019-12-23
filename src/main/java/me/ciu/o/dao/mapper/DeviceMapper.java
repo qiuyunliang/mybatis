@@ -1,11 +1,9 @@
-package me.chiu.demo.dao.mapper;
+package me.ciu.o.dao.mapper;
 
-import me.chiu.demo.entity.Device;
-import org.apache.ibatis.annotations.CacheNamespace;
+import me.ciu.o.entity.Device;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
-
 
 @Mapper
 @Service

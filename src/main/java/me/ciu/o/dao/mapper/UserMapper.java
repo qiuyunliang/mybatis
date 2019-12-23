@@ -1,13 +1,13 @@
-package me.chiu.demo.dao.mapper;
+package me.ciu.o.dao.mapper;
 
-import me.chiu.demo.entity.User;
+import me.ciu.o.entity.User;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.cache.decorators.LoggingCache;
 import org.springframework.stereotype.Service;
 
-@CacheNamespace(eviction = LoggingCache.class)
 @Mapper
 @Service
+@CacheNamespace(eviction = LoggingCache.class)
 public interface UserMapper {
     @Select("SELECT * FROM USER WHERE id = #{id}")
     User selectUser(int id);
