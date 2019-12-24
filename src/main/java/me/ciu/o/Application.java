@@ -44,6 +44,6 @@ public class Application implements ApplicationRunner {
         log.info(device.toString());
         deviceMapper.insertDevice(new Device());
 
-//        producer.start();
+        // producer.start();
     }
 }
