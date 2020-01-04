@@ -1,19 +1,35 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <p>{{ count }}</p>
+    <button @click="handleIncrement">Increament</button>
+    <button @click="handleDecrease">Decrease</button>
+    <img src="./assets/logo.png" />
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
-}
+  name: "App",
+  computed: {
+    count: function() {
+      return this.$store.state.count;
+    }
+  },
+  methods: {
+    handleIncrement: function() {
+      this.$store.commit("increment");
+    },
+    handleDecrease: function() {
+      this.$store.commit("decrease");
+    }
+  }
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

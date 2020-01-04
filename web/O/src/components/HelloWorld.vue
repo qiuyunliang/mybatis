@@ -40,9 +40,9 @@
 </template>
 
 <script>
-$(function() {
-  alert(123);
-});
+// $(function() {
+//   alert(123);
+// });
 export default {
   name: "HelloWorld",
   data() {
