@@ -43,7 +43,7 @@ public class Application implements ApplicationRunner {
         Device device = deviceMapper.selectDevice(2);
         log.info(device.toString());
         deviceMapper.insertDevice(new Device());
-
+		log.info(device.toString());
         // producer.start();
     }
 }
