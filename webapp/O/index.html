@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>o</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <comp id="test">{{message}}</comp>
+    <script>
+      // 对象语法，提供验证
+      Vue.component("comp", {
+        props: {
+          // 检测类型
+          height: Number,
+          // 检测类型 + 其他验证
+          age: {
+            type: Number,
+            default: 0,
+            required: true,
+            validator: function(value) {
+              return value >= 0;
+            }
+          }
+        }
+      });
+      var app = new Vue({
+        el: "#test",
+        data: {
+          height: 0,
+          age: 0
+        },
+        propsData: {
+          height: 100,
+          age: 3
+        },
+        computed: {
+          iq: function () {
+            return height / age;
+          }
+        },
+        method: {
+          eq: function () {
+            return height * age;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

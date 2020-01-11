@@ -1,10 +1,14 @@
 package me.ciu.o.controller;
 
+import me.ciu.o.aspect.Debugger;
 import me.ciu.o.dao.mapper.DeviceMapper;
 import me.ciu.o.entity.Device;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 // RestController注解默认集成了@Controller和@ResponseBody两个注解，接口返回会按值返回，不会跳转至.html页面
 // Restful Web服务控制器只返回对象，对象数据作为JSON/XML直接写入HTTP响应。
@@ -48,6 +52,7 @@ public class SampleRestController {
     }
 
     // METHOD: GET, URI：http://localhost:8082/dev/o/v1/device/10
+    @Debugger
     @RequestMapping(value = "/device/{id}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity getUser(@PathVariable int id) {
         return ResponseEntity.ok(mapper.selectDevice(id));
